@@ -1,0 +1,162 @@
+// Page de réservations
+.reservation-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #fff;
+  background-color: #222;
+}
+
+// En-tête
+.reservation-header {
+  text-align: center;
+  margin-bottom: 20px;
+
+  h1 {
+    font-family: "Jomhuria", sans-serif;
+    font-size: 36px;
+    color: #fff;
+  }
+}
+
+// Contenu en deux colonnes
+.reservation-content {
+  display: flex;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+// Colonne gauche : Informations du jeu
+.game-info {
+  flex: 1;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+  h2 {
+    font-family: "Jomhuria", sans-serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .game-image {
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+  }
+
+  .game-description {
+    font-size: 16px;
+    margin-top: 15px;
+    text-align: justify;
+  }
+}
+
+// Colonne droite : Formulaire
+.reservation-form {
+  flex: 1;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    .form-group {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 16px;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #444;
+        border-radius: 5px;
+        background-color: #222;
+        color: #fff;
+      }
+
+      textarea {
+        height: 80px;
+      }
+    }
+
+    .form-options {
+      display: flex;
+      gap: 10px;
+
+      input[type="radio"] {
+        margin-right: 5px;
+      }
+    }
+
+    .form-hours {
+      display: flex;
+      gap: 10px;
+
+      .time-slot {
+        padding: 10px 15px;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .reserved {
+        background-color: #900;
+        color: #fff;
+      }
+
+      .available {
+        background-color: #090;
+        color: #fff;
+      }
+    }
+  }
+
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .back-btn,
+    .price-btn,
+    .submit-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .back-btn {
+      background-color: #900;
+      color: #fff;
+    }
+
+    .price-btn {
+      background-color: #444;
+      color: #fff;
+      cursor: default;
+    }
+
+    .submit-btn {
+      background-color: #090;
+      color: #fff;
+    }
+  }
+}

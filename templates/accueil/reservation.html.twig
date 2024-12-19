@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation - {{ jeu['Nom jeux'] }}{% endblock %}
+
+{% block body %}
+    <div class="reservation-container">
+        <div class="reservation-header">
+            <h1>Formulaire de Réservation</h1>
+        </div>
+        <div class="reservation-content">
+            <!-- Colonne gauche : Informations du jeu -->
+            <div class="game-info">
+                <h2>{{ jeu['Nom jeux'] }}</h2>
+                <div class="game-image">
+                    <img src="{{ asset('images/' ~ jeu['Image']) }}" alt="{{ jeu['Nom jeux'] }}">
+                </div>
+                <p class="game-description">{{ jeu['Description'] }}</p>
+            </div>
+
+            <!-- Colonne droite : Formulaire -->
+            <div class="reservation-form">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label>Lieu de l'activité *</label>
+                        <div class="form-options">
+                            <input type="radio" name="lieu" value="nos_locaux" id="nos_locaux" checked>
+                            <label for="nos_locaux">Dans nos locaux</label>
+                            <input type="radio" name="lieu" value="vos_locaux" id="vos_locaux">
+                            <label for="vos_locaux">Dans vos locaux</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date de Réservation *</label>
+                        <input type="date" name="date" id="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Heure de Réservation *</label>
+                        <div class="form-hours">
+                            <button type="button" class="time-slot reserved">10h-11h</button>
+                            <button type="button" class="time-slot available">11h-12h</button>
+                            <button type="button" class="time-slot reserved">14h-15h</button>
+                            <button type="button" class="time-slot available">15h-16h</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="joueurs">Nombre de Joueurs *</label>
+                        <select name="joueurs" id="joueurs" required>
+                            <option value="3-4">3-4 joueurs</option>
+                            <option value="5">5 joueurs</option>
+                            <option value="6+">6 joueurs et plus</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="restrictions">Restrictions Alimentaires *</label>
+                        <textarea name="restrictions" id="restrictions" placeholder="Indiquez les allergies, régimes spéciaux, etc."></textarea>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button class="back-btn" onclick="window.history.back();">Retour</button>
+                        <button class="price-btn" disabled>Prix : 0,00€</button>
+                        <button class="submit-btn" type="submit">Réserver</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

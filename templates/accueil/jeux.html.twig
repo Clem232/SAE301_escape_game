@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jeux | Escape Game{% endblock %}
+
+{% block body %}
+
+    <h1>Nos Jeux</h1>
+
+    {% for categorie, jeux in categories %}
+
+        <div class="game-category">
+            <h2>{{ categorie }}</h2>
+            {% for jeu in jeux %}
+                <div class="game">
+                    <div class="game-content">
+                        <div class="game-image">
+                            <img src="{{ asset('images/' ~ jeu['Image']) }}" alt="{{ jeu['Nom jeux'] }}">
+                        </div>
+                        <div class="game-info">
+                            <h3>{{ jeu['Nom jeux'] }}</h3>
+                            {% if jeu['Description'] %}
+                                <p class="description">{{ jeu['Description']|nl2br }}</p>
+                            {% endif %}
+                            <div class="game-details">
+                                <div class="mini-info">Joueurs : {{ jeu['Joueurs'] }}</div>
+                                <div class="mini-info">Prix : {{ jeu['Prix'] }}</div>
+                                {% if jeu['Repas'] %}
+                                    <div class="mini-info">Repas : {{ jeu['Repas'] }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="reserve-btn" onclick="window.location.href='{{ path('reservation', {'jeu': jeu['Nom jeux']|replace({' ': '-', "'": ''})|lower}) }}'">Réserver</button>
+                        {% if categorie in ['Murder Party', 'Chasseur de Trésor'] %}
+                            <button class="info-btn" data-jeu="{{ jeu['Nom jeux']|replace({' ': '-', "'": ''})|lower }}">En savoir plus</button>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Modal pour chaque jeu -->
+                <div class="modal" id="modal-{{ jeu['Nom jeux']|replace({' ': '-', "'": ''})|lower }}">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="modal-header">
+                            <img src="{{ asset('images/' ~ jeu['Image']) }}" alt="{{ jeu['Nom jeux'] }}">
+                            <h3>{{ jeu['Nom jeux'] }}</h3>
+                        </div>
+                        <div class="modal-body">
+                            {% if jeu['Histoire'] is defined %}
+                                <p>{{ jeu['Histoire']|nl2br }}</p>
+                            {% else %}
+                                <p>Aucune histoire disponible pour ce jeu.</p>
+                            {% endif %}
+                        </div>
+                        <div class="modal-footer">
+                            {% if jeu['Niveau'] is defined %}
+                                <div class="mini-info">Niveau : {{ jeu['Niveau'] }}</div>
+                            {% endif %}
+                            {% if jeu['Capacité'] is defined %}
+                                <div class="mini-info">Capacité : {{ jeu['Capacité'] }}</div>
+                            {% endif %}
+                            {% if jeu['Repas'] is defined %}
+                                <div class="mini-info">Repas : {{ jeu['Repas'] }}</div>
+                            {% endif %}
+                            <button class="reserve-btn" onclick="window.location.href='{{ path('reservation', {'jeu': jeu['Nom jeux']|replace({' ': '-', "'": ''})|lower}) }}'">Réserver</button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+
+{% endblock %}

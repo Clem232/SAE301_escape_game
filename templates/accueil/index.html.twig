@@ -1,0 +1,188 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil | Escape Game{% endblock %}
+
+{% block body %}
+    <!-- ========================== -->
+    <!-- SECTION PRINCIPALE (HERO) -->
+    <!-- ========================== -->
+
+    <main>
+        <div class="hero">
+            <h1 class="title">ESCAPE GAMES</h1>
+            <img src="{{ asset('images/Vector.png') }}" alt="" />
+            <div class="container">
+                <div class="circle">
+                    <div class="chevron"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- ========================== -->
+    <!-- SECTION DE TEXTE           -->
+    <!-- ========================== -->
+
+    <div class="text-section">
+        <h1>Un Escape Game original qui peut se jouer n'importe où !</h1>
+        <p>Adapté pour tous et pour toutes les occasions :</p>
+        <p>
+            Jouer en famille, entre amis ou entre collègues pour une soirée, un anniversaire, un EVJF, un Team-building ou tout simplement un apéro !
+            Avec Escape Game Troyes, vous vivrez une expérience unique en compagnie de vos amis ou collègues de travail.
+            Avec tous les jeux originaux créés par une équipe créative remplie de talents, vous serez garanti de trouver un jeu qui vous amuse.
+            Inscrivez-vous dès maintenant!
+        </p>
+
+        <a href="#" class="btn-red">Nos jeux</a>
+
+        <!-- Description secondaire -->
+        <div class="description-02">
+            <p>
+                Un Escape Game original qui peut se jouer n'importe où ! Adapté pour tous et pour toutes les occasions :
+                jouer en Famille, entre Amis ou entre Collègues pour une Soirée, un Anniversaire, un EVJF, un Team-building ou tout simplement un Apéro !
+            </p>
+
+            <iframe
+                    src="https://player.vimeo.com/video/972125965?loop=false&autoplay=false&muted=false&gesture=media&playsinline=true&byline=false&portrait=false&title=false&speed=true&transparent=false&customControls=true&dnt=1"
+                    width="1040"
+                    height="660"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- ========================== -->
+    <!-- SECTION DES MENUS (APEROS) -->
+    <!-- ========================== -->
+    <section class="aperos">
+        <!-- Séparateur -->
+        <section class="separator">
+            <div class="line"></div>
+            <h2>Apéros</h2>
+            <div class="line"></div>
+        </section>
+
+        <p>
+            Ces apéritifs sont tous proposés au moment où ils sont affichés sur le site. Aucun menu séparé n'est proposé.
+        </p>
+
+        <!-- Grille des cartes -->
+        <div class="background">
+            <div class="grid">
+                <div class="card">
+                    <h3>Frites</h3>
+                    <img src="{{ asset('images/Accueil/frites.png') }}" alt="Frites" />
+                    <h3>9,99€</h3>
+                </div>
+                <div class="card">
+                    <h3>Pizza</h3>
+                    <img src="{{ asset('images/Accueil/pizza.png') }}" alt="Pizza" />
+                    <h3>9,99€</h3>
+                </div>
+                <div class="card">
+                    <h3>Nachos</h3>
+                    <img src="{{ asset('images/Accueil/nachos.png') }}" alt="Nachos" />
+                    <h3>9,99€</h3>
+                </div>
+                <div class="card">
+                    <h3>Glace</h3>
+                    <img src="{{ asset('images/Accueil/ice-cream.png') }}" alt="Glace" class="icecream" />
+                    <h3>9,99€</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================== -->
+    <!-- SECTION DES STATS          -->
+    <!-- ========================== -->
+
+    <section class="stats-section">
+        <div class="stat">
+            <div class="icon">
+                <img src="{{ asset('images/Accueil/Icons/food-restaurant.png') }}" alt="Fork and Knife Icon" />
+            </div>
+            <h2>988+</h2>
+            <p>Apéros sauvés</p>
+        </div>
+        <div class="stat">
+            <div class="icon">
+                <img src="{{ asset('images/Accueil/Icons/people.png') }}" alt="Clients Icon" />
+            </div>
+            <h2>97%</h2>
+            <p>De clients conquis</p>
+        </div>
+        <div class="stat">
+            <div class="icon">
+                <img src="{{ asset('images/Accueil/Icons/smiley.png') }}" alt="Fun Icon" />
+            </div>
+            <h2>100%</h2>
+            <p>Fun!!</p>
+        </div>
+    </section>
+    <!-- ========================== -->
+    <!-- SECTION DES AVIS CLIENTS   -->
+    <!-- ========================== -->
+    <section class="avis-section">
+        <!-- Séparateur -->
+        <section class="separator">
+            <div class="line"></div>
+            <h2 class="avis-title">Avis</h2>
+            <div class="line"></div>
+        </section>
+
+        <div class="avis-container">
+            <div class="avis-arrows">
+                <!-- Flèche droite -->
+                <div class="arrow-right">
+                    <div class="chevron"></div>
+                </div>
+
+                <!-- Avis 1 -->
+                <div class="avis-card">
+                    <h3 class="avis-user">Orélie Gautier</h3>
+                    <p class="avis-text">
+                        Une superbe expérience pour les 10 ans de mon fils... Je suis jalouse, il va falloir tester la version adulte !!!
+                    </p>
+                    <div class="avis-stars">★★★★★</div>
+                </div>
+
+                <!-- Avis 2 -->
+                <div class="avis-card">
+                    <h3 class="avis-user">Armelle Dufour</h3>
+                    <p class="avis-text">
+                        Super moment entre amis ! Le jeu se corse au fur et à mesure, tout en nous assurant de profiter de l'espace au fil des énigmes.
+                        Original et très bien agencé. Je recommande vivement !
+                    </p>
+                    <div class="avis-stars">★★★★★</div>
+                </div>
+
+                <!-- Avis 3 -->
+                <div class="avis-card">
+                    <h3 class="avis-user">orfeys6</h3>
+                    <p class="avis-text">
+                        Location d'une box "escape game apéro" à domicile pour un EVJF mémorable et insolite ce dimanche 30 avril !!! Nous avons fait fumer nos cerveaux pour...
+                        <a href="#" class="avis-link">Voir plus</a>
+                    </p>
+                    <div class="avis-stars">★★★★★</div>
+                </div>
+
+                <!-- Flèche gauche -->
+                <div class="arrow-left">
+                    <div class="chevron"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ========================== -->
+    <!-- SECTION IMAGE BAR -->
+    <!-- ========================== -->
+    <section class="bar-image">
+        <img src="img/Accueil/Hero/hero3.png" alt="" />
+    </section>
+
+
+
+{% endblock %}

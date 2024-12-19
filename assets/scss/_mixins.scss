@@ -1,0 +1,327 @@
+// titre hero image (biggest)
+
+@mixin h1 {
+  font-family: "Jomhuria", serif;
+  font-weight: 200;
+  color: $third-color;
+  font-size: 96px;
+  margin: 0;
+  font-style: normal;
+}
+
+// titre h2
+
+@mixin h2 {
+  font-family: "Jomhuria", serif;
+  font-weight: 200;
+  text-align: center;
+  width: 75%;
+  margin: 0 auto;
+  font-size: 48px;
+  color: white;
+  font-style: normal;
+}
+
+// titre h3
+
+@mixin h3 {
+  font-family: "Jomhuria", serif;
+  font-weight: 200;
+  color: $secondary-color;
+  font-size: 76px;
+  margin: 0;
+  font-style: normal;
+}
+
+// titre h4
+
+@mixin h4 {
+  font-family: "Jomhuria", serif;
+  color: $secondary-color;
+  font-size: 45px;
+  margin: 0;
+  font-style: normal;
+}
+
+// titre h5
+
+@mixin h5 {
+  font-family: "Jomhuria", serif;
+  font-weight: 200;
+  font-size: 25px;
+  color: $secondary-color;
+  font-style: normal;
+}
+
+// paragraphe
+
+@mixin p {
+  color: $secondary-color(198, 198, 198);
+  font-family: "Corben", serif;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+// mixins pour les boutons
+
+@mixin button($bg-color, $text-color, $hover-bg: darken($bg-color, 0%)) {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: $third-color;
+  color: $text-color;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: $third-color;
+    transform: translateY(-3px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+// mixins d'opacité et de position pour les images
+
+@mixin img {
+  position: absolute;
+  opacity: 0.3;
+}
+
+// séparateur entre les divs
+
+@mixin separator($line-width, $line-height, $line-color) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 100px 0px 100px;
+
+  .line {
+    flex: none;
+    width: $line-width;
+    height: $line-height;
+    background-color: $line-color;
+  }
+}
+
+// mixin pour les backgrounds
+
+@mixin background-image-style($image-path, $height: 900px) {
+  position: relative;
+  background-image: url($image-path);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: $height;
+  margin-top: 70px;
+}
+
+// mixin couleurs de fonds des éléments
+
+@mixin style-background {
+  background-color: rgba(35, 35, 35, 0.914);
+}
+
+// Flèches directionnels pour les avis :)
+
+@mixin circle-arrow(
+  $circle-size,
+  $background-color,
+  $chevron-size,
+  $border-color,
+  $border-width,
+  $direction
+) {
+  width: $circle-size;
+  height: $circle-size;
+  background-color: $background-color;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  // Chevron interne
+  &::after {
+    content: "";
+    width: $chevron-size;
+    height: $chevron-size;
+    border: solid $border-color;
+    border-width: 0 0 $border-width $border-width;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate($direction);
+  }
+}
+
+// modification de texte style pour la page jeux
+
+@mixin p-jeux {
+  width: 80%;
+  text-align: left;
+  margin: 0;
+}
+
+// mixins fond icones
+
+@mixin font-icon {
+  background-color: $secondary-color;
+  border-radius: 70%;
+  padding: 5px;
+}
+
+// mixin pour le bouton reservé
+
+@mixin reservation {
+  .escape-button {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+
+    .reserve-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $secondary-color;
+      color: $third-color;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      gap: 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background-color: $third-color;
+        color: $secondary-color;
+        transform: translateY(-3px);
+      }
+      &:not(:hover) {
+        transform: translateY(0);
+      }
+
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+  }
+}
+
+// mixin bouton en savoir +
+
+@mixin savoir-p {
+  .escape-button {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+
+    .reserve-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $third-color;
+      color: $secondary-color;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      gap: 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+      &:not(:hover) {
+        transform: translateY(0);
+      }
+
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+  }
+}
+
+// mixin bouton pour les popups
+
+@mixin bouton-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $secondary-color;
+  color: $third-color;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  gap: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    background-color: $third-color;
+    color: $secondary-color;
+  }
+
+  &:not(:hover) {
+    transform: translateY(0);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+// mixins pour span
+
+@mixin span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  @include h5;
+  margin: 30px 0px 30px 0;
+  background-color: $third-color;
+  border-radius: 20px;
+  padding: 7px;
+}
+
+// mixins autre span
+
+@mixin span-2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  @include h5;
+  background-color: $third-color;
+  border-radius: 70%;
+  padding: 10px;
+}
+
+// style de span 3
+
+@mixin span-3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  @include h5;
+  margin: 0;
+  border-radius: 20px;
+  background-color: $third-color;
+  padding: 10px;
+}

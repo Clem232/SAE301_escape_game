@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Escape Game{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Corben:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ path('accueil') }}">Accueil</a></li>
+            <li><a href="{{ path('contact') }}">Contact</a></li>
+            <li class="logo">
+                <a href="{{ path('accueil') }}"><img src="{{ asset('images/Navbar/logo.png') }}" alt="Logo crâne"></a>
+            </li>
+            <li class="dropdown">
+                <a href="jeux" class="nav-link">Jeux</a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('jeux') }}#team-building">Team Building</a></li>
+                    <li><a href="{{ path('jeux') }}#murder-party">Murder Party</a></li>
+                    <li><a href="{{ path('jeux') }}#escape-game-apero">Escape Game Apéro</a></li>
+                    <li><a href="{{ path('jeux') }}#chasseur-de-tresor">Chasseur de Trésor</a></li>
+                </ul>
+            </li>
+            <li><a href="{{ path('a_propos') }}">À propos de nous</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main Content -->
+{% block body %}{% endblock %}
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="contact-info">
+            <h3>Nous contacter</h3>
+            <p>
+                <a href="mailto:contact@votre-site.com">contact@votre-site.com</a
+                ><br />
+                06 48 24 34 12
+            </p>
+        </div>
+
+        <!-- icones de réseaux sociaux -->
+
+        <div class="social-icons">
+            <div class="legal">
+                <a href="#"><img src="{{ asset('images/Navbar/logo.png') }}" alt="" /> </a>
+                <a href="#"
+                ><img src="img/Accueil/Icons/instagram.png" alt="" />
+                </a>
+                <a href="#"><img src="{{ asset('images/Navbar/logo.png') }}" alt="" /> </a>
+                <a href="#"><img src="{{ asset('images/Navbar/logo.png') }}" alt="" /> </a>
+            </div>
+            <p>&copy; 2024 Escape Game. Tous droits réservés.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
+</html>
